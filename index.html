@@ -76,7 +76,7 @@
   <section id="home" class="home">
     <div class="container">
       <div class="row justify-content-center mt-5 mt-md-1">
-        <div class="col-md-8 text-center pt-5 pt-md-1">
+        <div class="col-md-8 text-center pt-3 pt-md-1">
           <h2 class="mt-5 mt-md-1">Assalamu'alaikum Wr. Wb.</h2>
           <h3>Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta’ala, insyaaAllah Kami akan menyelenggarakan acara
             pernikahan</h3>
@@ -326,17 +326,41 @@
       <div class="row justify-content-center text-center">
         <div class="col-md-6">
           <ul class="list-group">
-            <li class="list-group-item">
+            <li class="list-group-item py-4">
               <h3 class="fw-bold mt-3">BRI</h3>
               <img src="img/bri irvan.png" alt="BRI" class="img-thumbnail" width="200"><br>
               <span id="textToCopy">613201025549537</span>
               <button class="btn btn-lg btn-secondary" style="border-radius: 50px;" onclick="copyText()">Salin No.
                 Rekening</button>
             </li>
-            <li class="list-group-item">
+            <li class="list-group-item py-4">
               <h3 class="fw-bold mt-3">DANA</h3>
               <img src="img/dana.jpg" alt="Dana" class="img-thumbnail" width="180"><br>
-              M. IRVAN ALFI HIDAYAT
+              <span id="textToCopy2">082244922833</span>
+              <span>Scan Qr atau </span>
+              <button class="btn btn-lg btn-secondary" style="border-radius: 50px;" onclick="copyText2()">Salin
+                No.Hp</button>
+            </li>
+            <li class="list-group-item py-4 text-start">
+              <h3 class="fw-bold mt-3 text-center">Kirim Hadiah Ke :</h3>
+              <table>
+                <tr>
+                  <td>Nama</td>
+                  <td>:</td>
+                  <td>Puji Rohmatun</td>
+                </tr>
+                <tr>
+                  <td>Telp</td>
+                  <td>:</td>
+                  <td>+62 851-8668-2330</td>
+                </tr>
+                <tr>
+                  <td>Alamat</td>
+                  <td>:</td>
+                  <td>Jl. Rowo Bayu, Dsn. Sambungrejo RT 03 / RW 02, Ds. Bayu, Kec. Songgon Kab. Banyuwangi POS 68463
+                  </td>
+                </tr>
+              </table>
             </li>
           </ul>
         </div>
@@ -357,19 +381,11 @@
         action="https://script.google.com/macros/s/AKfycbyddFbEJRqwEeA6OmZAuNf0jw_B30ZUOS5qSDwlAKV_nurcW7H6osJx2ZWnIeTmPm_35g/exec"
         id="my-form">
         <div class="card shadow" style="border-radius: 10px;">
-          <div class="card-body row row-cols-md-auto g-3 align-items-center justify-content-center p-5">
+          <div class="card-body row g-3 align-items-center justify-content-center p-5">
             <div class="col-12">
               <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
                 <input type="text" class="form-control" id="nama" name="nama">
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="mb-3">
-                <label for="jumlah" class="form-label">Ucapan & Do'a</label>
-                <textarea class="form-control" name="ucapan" id="ucapan" rows="5"
-                  placeholder="Berikan ucapan dan do'a terbaik Anda"></textarea>
-                <!-- <input type="number" class="form-control" id="jumlah" name="jumlah" min="1" max="5" length="1" value="1"> -->
               </div>
             </div>
             <div class="col-12">
@@ -380,6 +396,14 @@
                   <option value="Hadir">Hadir</option>
                   <option value="Tidak Hadir">Tidak Hadir</option>
                 </select>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="mb-3">
+                <label for="jumlah" class="form-label">Ucapan & Do'a</label>
+                <textarea class="form-control" name="ucapan" id="ucapan" rows="5"
+                  placeholder="Berikan ucapan dan do'a terbaik Anda"></textarea>
+                <!-- <input type="number" class="form-control" id="jumlah" name="jumlah" min="1" max="5" length="1" value="1"> -->
               </div>
             </div>
             <div class="col-12" style="margin-top: 20px;">
@@ -405,9 +429,8 @@
     </div>
   </footer>
 
-  <nav class="navbar navbar_bottom bg-body-tertiary fixed-bottom d-none">
+  <!-- <nav class="navbar navbar_bottom bg-body-tertiary fixed-bottom d-none">
     <div class="container-fluid">
-      <!-- <a class="navbar-brand" href="#">Offcanvas navbar</a> -->
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -443,7 +466,7 @@
         </div>
       </div>
     </div>
-  </nav>
+  </nav> -->
 
   <div id="audio-container">
     <audio id="song" autoplay loop>
@@ -483,6 +506,28 @@
       document.body.removeChild(tempTextArea);
 
       alert("Teks telah disalin!");
+    }
+    function copyText2() {
+      // Temukan elemen span berdasarkan ID atau selector yang sesuai
+      var spanElement = document.getElementById("textToCopy2");
+
+      // Buat elemen textarea sementara
+      var tempTextArea2 = document.createElement("textarea");
+      tempTextArea2.value = spanElement.textContent;
+
+      // Sisipkan elemen textarea ke dalam dokumen
+      document.body.appendChild(tempTextArea2);
+
+      // Pilih teks di dalam elemen textarea
+      tempTextArea2.select();
+
+      // Salin teks ke clipboard
+      document.execCommand("copy");
+
+      // Hapus elemen textarea yang sementara
+      document.body.removeChild(tempTextArea2);
+
+      alert("No Hp telah disalin!");
     }
   </script>
   <script>
