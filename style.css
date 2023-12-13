@@ -343,31 +343,31 @@ i {
 }
 
 .rsvp {
-  background-color: var(--bg);
+  background-color: var(--cream);
 }
 
 .rsvp h2 {
-  font-size: 4.5rem;
+  font-size: 3rem;
 }
 
 .rsvp p {
-  color: white;
+  color: var(--coklat);
 }
 
 .rsvp form label {
-  color: white;
+  color: var(--coklat);
 }
 
 .rsvp button {
-  background-color: var(--pink);
+  background-color: var(--coklat);
   color: white;
-  border: 1px solid var(--pink);
+  border: 1px solid var(--coklat);
 }
 
 .rsvp button:hover {
-  background-color: white;
-  color: var(--pink);
-  border: 1px solid white;
+  background-color: var(--cream);
+  color: var(--coklat);
+  border: 1px solid var(--cream);
 }
 
 footer {
