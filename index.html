@@ -680,16 +680,25 @@
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
     <script>
       $(document).ready(function () {
-        var response = fetch('curl.php');
-
-        response
-          .then((response) => response.json())
-          .then(function (json) {
-            console.log(json);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        $.ajax({
+          url: "https://api.sandbox.gilitransfers.com/wishes/messages",
+          type: "GET",
+          dataType: "JSON",
+          success: function (data) {
+            $("#wishes").empty();
+            data.forEach(function (datas) {
+              $("#wishes").append(
+                "<tr><td><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'> <g fill='none' stroke='currentColor' stroke-width='2'> <path d='M4 12a8 8 0 1 1 16 0v5.09c0 .848 0 1.27-.126 1.609a2 2 0 0 1-1.175 1.175C18.36 20 17.937 20 17.09 20H12a8 8 0 0 1-8-8z' /> <path stroke-linecap='round' stroke-linejoin='round' d='M9 11h6m-3 4h3' /> </g> </svg> </td> <td> <strong>" +
+                  datas.subject +
+                  "</strong><div class='badge bg-primary'>" +
+                  datas.presence +
+                  "</div><br /> <span>" +
+                  datas.message +
+                  "</span> </td> </tr>"
+              );
+            });
+          },
+        });
       });
     </script>
 
