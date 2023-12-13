@@ -21,6 +21,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <link rel="stylesheet" href="style.css">
+  <!-- data tables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+
 </head>
 
 <body>
@@ -374,11 +377,11 @@
         </div>
       </div>
 
-      <form method="POST"
-        action="https://script.google.com/macros/s/AKfycbyddFbEJRqwEeA6OmZAuNf0jw_B30ZUOS5qSDwlAKV_nurcW7H6osJx2ZWnIeTmPm_35g/exec"
-        id="my-form">
-        <div class="card shadow" style="border-radius: 10px;">
-          <div class="card-body row g-3 align-items-center justify-content-center p-5">
+      <div class="card shadow" style="border-radius: 10px;">
+        <div class="card-body row g-3 align-items-center justify-content-center p-5">
+          <form method="POST"
+            action="https://script.google.com/macros/s/AKfycbyddFbEJRqwEeA6OmZAuNf0jw_B30ZUOS5qSDwlAKV_nurcW7H6osJx2ZWnIeTmPm_35g/exec"
+            id="my-form">
             <div class="col-12">
               <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
@@ -403,12 +406,39 @@
                 <!-- <input type="number" class="form-control" id="jumlah" name="jumlah" min="1" max="5" length="1" value="1"> -->
               </div>
             </div>
-            <div class="col-12" style="margin-top: 20px;">
+            <div class="col-12" style="margin-top: 20px; margin-bottom: 30px;">
               <button class="btn btn-primary btn-lg">Kirim</button>
             </div>
-          </div>
+          </form>
+          <table id="example" class="table table-striped" style="width:100%">
+            <thead>
+              <tr>
+                <th data-orderable="false"></th>
+                <th data-orderable="false">Ucapan dan Do'a</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <g fill="none" stroke="currentColor" stroke-width="2">
+                      <path
+                        d="M4 12a8 8 0 1 1 16 0v5.09c0 .848 0 1.27-.126 1.609a2 2 0 0 1-1.175 1.175C18.36 20 17.937 20 17.09 20H12a8 8 0 0 1-8-8z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 11h6m-3 4h3" />
+                    </g>
+                  </svg>
+                </td>
+                <td>
+                  <strong>Fatwa</strong>
+                  <div class="badge bg-primary">Hadir</div><br>
+                  <span>Ucapan dan do'a yang di sampaikan</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </form>
+      </div>
+
 
     </div>
   </section>
@@ -474,6 +504,14 @@
     </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      new DataTable('#example');
+    });
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
