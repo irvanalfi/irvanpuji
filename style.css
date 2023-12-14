@@ -393,12 +393,12 @@ footer li {
 }
 
 .audio-icon-wrapper {
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   font-size: 4rem;
   position: fixed;
-  bottom: 5rem;
-  right: 5rem;
+  bottom: 2.5rem;
+  right: 3rem;
   cursor: pointer;
   color: var(--coklat);
   /* opacity: 0.5; */
