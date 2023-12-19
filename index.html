@@ -397,7 +397,7 @@
 
       <div class="card shadow" style="border-radius: 10px">
         <div class="card-body row g-3 align-items-center justify-content-center p-5">
-          <form" id="my-form">
+          <form id="my-form">
             <div class="col-12">
               <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
@@ -425,57 +425,69 @@
             <div class="col-12" style="margin-top: 20px; margin-bottom: 30px">
               <button class="btn btn-primary btn-lg" onclick="submitWishes()">Kirim</button>
             </div>
-            </form>
-            <table id="example" class="table table-striped" style="width: 100%">
-              <thead>
-                <tr>
-                  <th data-orderable="false"></th>
-                  <th data-orderable="false">Ucapan dan Do'a</th>
-                </tr>
-              </thead>
-              <tbody id="wishes">
-                <script>
-                  $(document).ready(function () {
-                    $.ajax({
-                      url: "https://api.sandbox.gilitransfers.com/wishes/messages",
-                      type: "GET",
-                      dataType: "JSON",
-                      success: function (data) {
-                        // $("#wishes").empty();
-                        // data.forEach(function (datas) {
-                        //   $("#wishes").append(
-                        //     "<tr><td><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'> <g fill='none' stroke='currentColor' stroke-width='2'> <path d='M4 12a8 8 0 1 1 16 0v5.09c0 .848 0 1.27-.126 1.609a2 2 0 0 1-1.175 1.175C18.36 20 17.937 20 17.09 20H12a8 8 0 0 1-8-8z' /> <path stroke-linecap='round' stroke-linejoin='round' d='M9 11h6m-3 4h3' /> </g> </svg> </td> <td> <strong>" +
-                        //       datas.subject +
-                        //       "</strong><div class='badge bg-primary'>" +
-                        //       datas.presence +
-                        //       "</div><br /> <span>" +
-                        //       datas.message +
-                        //       "</span> </td> </tr>"
-                        //   );
-                        // });
-                        const tableData = [];
-                        data.forEach(function (datas) {
-                          tableData.push([
-                            "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'> <g fill='none' stroke='currentColor' stroke-width='2'> <path d='M4 12a8 8 0 1 1 16 0v5.09c0 .848 0 1.27-.126 1.609a2 2 0 0 1-1.175 1.175C18.36 20 17.937 20 17.09 20H12a8 8 0 0 1-8-8z' /> <path stroke-linecap='round' stroke-linejoin='round' d='M9 11h6m-3 4h3' /> </g> </svg>",
-                            "<strong>" + datas.subject + "</strong><div class='badge bg-primary'>" + datas.presence + "</div><br /> <span>" + datas.message + "</span>"
-                          ]);
-                        });
+          </form>
+          <table id="example" class="table table-striped" style="width: 100%">
+            <thead>
+              <tr>
+                <th data-orderable="false"></th>
+                <th data-orderable="false">Ucapan dan Do'a</th>
+              </tr>
+            </thead>
+            <tbody id="wishes">
+              <script>
+                $(document).ready(function () {
+                  $.ajax({
+                    url: "https://api.sandbox.gilitransfers.com/wishes/messages",
+                    type: "GET",
+                    dataType: "JSON",
+                    success: function (data) {
+                      // $("#wishes").empty();
+                      // data.forEach(function (datas) {
+                      //   $("#wishes").append(
+                      //     "<tr><td><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'> <g fill='none' stroke='currentColor' stroke-width='2'> <path d='M4 12a8 8 0 1 1 16 0v5.09c0 .848 0 1.27-.126 1.609a2 2 0 0 1-1.175 1.175C18.36 20 17.937 20 17.09 20H12a8 8 0 0 1-8-8z' /> <path stroke-linecap='round' stroke-linejoin='round' d='M9 11h6m-3 4h3' /> </g> </svg> </td> <td> <strong>" +
+                      //       datas.subject +
+                      //       "</strong><div class='badge bg-primary'>" +
+                      //       datas.presence +
+                      //       "</div><br /> <span>" +
+                      //       datas.message +
+                      //       "</span> </td> </tr>"
+                      //   );
+                      // });
+                      const tableData = [];
+                      data.forEach(function (datas) {
+                        tableData.push([
+                          "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'> <g fill='none' stroke='currentColor' stroke-width='2'> <path d='M4 12a8 8 0 1 1 16 0v5.09c0 .848 0 1.27-.126 1.609a2 2 0 0 1-1.175 1.175C18.36 20 17.937 20 17.09 20H12a8 8 0 0 1-8-8z' /> <path stroke-linecap='round' stroke-linejoin='round' d='M9 11h6m-3 4h3' /> </g> </svg>",
+                          "<strong>" + datas.subject + "</strong><div class='badge bg-primary'>" + datas.presence + "</div><br /> <span>" + datas.message + "</span>"
+                        ]);
+                      });
 
-                        $("#example").dataTable({
-                          data: tableData,
-                          bPaginate: true,
-                          bLengthChange: false,
-                          bFilter: true,
-                          bInfo: false,
-                          bAutoWidth: false,
-                        });
-                      },
-                    });
+                      $("#example").dataTable({
+                        data: tableData,
+                        bPaginate: true,
+                        bLengthChange: false,
+                        bFilter: true,
+                        bInfo: false,
+                        bAutoWidth: false,
+                      });
+                    },
                   });
-                </script>
-              </tbody>
-            </table>
+                });
+              </script>
+            </tbody>
+          </table>
         </div>
+      </div>
+      <div class="text-center mt-5 pt-5" width="100%">
+        <h3 class="mb-3">
+          Atas kehadiran dan do’a restu dari Bapak/Ibu/Saudara/i sekalian, kami mengucapkan Terima Kasih.
+        </h3>
+        <h2 class="my-5">Wassalamu'alaikum Wr. Wb.</h2>
+        <h3 class="mb-5">
+          Kami yang berbahagia
+        </h3>
+        <h2 class="mt-5"
+          style="font-family: 'Cinzel Decorative', cursive; font-size: 5rem; font-weight: normal; color: var(--coklat);">
+          Irvan<br>&<br>Puji</h2>
       </div>
     </div>
   </section>
